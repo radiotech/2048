@@ -377,8 +377,8 @@ $(document).keydown(function(event) {
   update();
 });
 
-document.addEventListener("touchstart", handleTouchStart, true);
-document.addEventListener("touchmove", handleTouchMove, true);
+document.addEventListener("touchstart", handleTouchStart, false);
+document.addEventListener("touchmove", handleTouchMove, false);
 
 var xDown = null;
 var yDown = null;
