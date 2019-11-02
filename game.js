@@ -377,8 +377,8 @@ $(document).keydown(function(event) {
   update();
 });
 
-$("#game-board")[0].addEventListener("touchstart", handleTouchStart, false);
-$("#game-board")[0].addEventListener("touchmove", handleTouchMove, false);
+document.addEventListener("touchstart", handleTouchStart, true);
+document.addEventListener("touchmove", handleTouchMove, true);
 
 var xDown = null;
 var yDown = null;
