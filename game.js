@@ -377,8 +377,8 @@ $(document).keydown(function(event) {
   update();
 });
 
-document.addEventListener("touchstart", handleTouchStart, false);
-document.addEventListener("touchmove", handleTouchMove, false);
+document.addEventListener("touchstart", handleTouchStart, { passive: false });
+document.addEventListener("touchmove", handleTouchMove, { passive: false });
 
 var xDown = null;
 var yDown = null;
@@ -390,12 +390,18 @@ function getTouches(evt) {
 }
 
 function handleTouchStart(evt) {
+  evt.preventDefault();
+  console.log(evt);
+
   const firstTouch = getTouches(evt)[0];
   xDown = firstTouch.clientX;
   yDown = firstTouch.clientY;
 }
 
 function handleTouchMove(evt) {
+  evt.preventDefault();
+  console.log(evt);
+
   if (!xDown || !yDown) {
     return;
   }
