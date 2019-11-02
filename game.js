@@ -377,8 +377,12 @@ $(document).keydown(function(event) {
   update();
 });
 
-document.addEventListener("touchstart", handleTouchStart, { passive: false });
-document.addEventListener("touchmove", handleTouchMove, { passive: false });
+$("#game-board")[0].addEventListener("touchstart", handleTouchStart, {
+  passive: false
+});
+$("#game-board")[0].addEventListener("touchmove", handleTouchMove, {
+  passive: false
+});
 
 var xDown = null;
 var yDown = null;
