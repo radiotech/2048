@@ -391,7 +391,6 @@ function getTouches(evt) {
 
 function handleTouchStart(evt) {
   evt.preventDefault();
-  console.log(evt);
 
   const firstTouch = getTouches(evt)[0];
   xDown = firstTouch.clientX;
@@ -400,7 +399,6 @@ function handleTouchStart(evt) {
 
 function handleTouchMove(evt) {
   evt.preventDefault();
-  console.log(evt);
 
   if (!xDown || !yDown) {
     return;
