@@ -10,22 +10,28 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=McLaren&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="shortcut icon" href="favicon.ico" type="favicon.ico" />
     <title>2048</title>
 
     <style type="text/css">
       html,
       body {
+        font-family: "McLaren", cursive;
+        font-weight: bold;
         overflow: hidden;
       }
-
       .wrapper {
-        position: relative;
+        margin-top: 10px;
       }
       #game-board {
         touch-action: none;
         width: 480px;
-        height: 480px;
+        padding-top: 480px; /*1:1 Aspect Ratio*/
         position: absolute;
         background: #a9a9a9;
         left: 50%;
@@ -33,7 +39,7 @@
         color: #664033;
         text-align: center;
         font-size: 40px;
-        font-family: monospace;
+
         line-height: 108px;
         border-radius: 5px;
       }
@@ -52,7 +58,7 @@
         color: #664033;
         text-align: center;
         font-size: 40px;
-        font-family: monospace;
+
         line-height: 108px;
         border-radius: 5px;
       }
@@ -70,12 +76,12 @@
         color: #664033;
         text-align: center;
         font-size: 40px;
-        font-family: monospace;
+
         line-height: 108px;
         border-radius: 5px;
       }
       #restart {
-        margin-top: 500px;
+        /* margin-right: 190px; */
       }
       .block {
         position: absolute;
@@ -94,8 +100,19 @@
         border-radius: 7px;
         animation: size 0.15s ease-in-out;
       }
+      .line-2 {
+        display: flex;
+        justify-content: space-between;
+        width: 480px;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
       .title {
-        margin-top: 10%;
+        margin: 30px;
+      }
+      .score {
+        font-size: 30px;
       }
 
       @keyframes size {
@@ -118,21 +135,89 @@
       #canvas {
         background: #a9a9a9;
       }
+
+      @media only screen and (max-width: 600px) {
+        .title {
+          margin: 10%;
+        }
+        .line-2 {
+          position: relative;
+          display: flex;
+          width: 95%;
+          left: 50%;
+          justify-content: space-between;
+          margin: 15px 0;
+          align-items: center;
+        }
+        #game-board {
+          position: absolute;
+          width: 95%;
+          padding-top: 100%; /* 1:1 Aspect Ratio */
+          background: #a9a9a9;
+          left: 50%;
+          transform: translate(-50%, 0px);
+          color: #664033;
+          text-align: center;
+          font-size: 40px;
+          line-height: 108px;
+          border-radius: 5px;
+          touch-action: none;
+        }
+
+        #over {
+          touch-action: none;
+          animation: opacity 0.5s ease-out;
+          background-color: rgba(255, 165, 0, 0.6);
+          padding-top: 180px;
+          display: none;
+          width: 95%;
+          padding-top: 100%; /* 1:1 Aspect Ratio */
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 0px);
+          color: #664033;
+          text-align: center;
+          font-size: 40px;
+          line-height: 108px;
+          border-radius: 5px;
+        }
+        #won {
+          touch-action: none;
+          animation: opacity 0.5s ease-out;
+          background-color: rgba(255, 165, 0, 0.6);
+          padding-top: 180px;
+          display: none;
+          width: 95%;
+          padding-top: 100%; /* 1:1 Aspect Ratio */
+          position: absolute;
+          left: 50%;
+          transform: translate(-50%, 0px);
+          color: #664033;
+          text-align: center;
+          font-size: 40px;
+          line-height: 108px;
+          border-radius: 5px;
+        }
+      }
     </style>
   </head>
   <body class="text-center" style="background-color: #faf8ef">
-    <h1 class="text-warning title">Our Beloved 2048</h1>
-    <code style="font-size: 30px">
-      Score:
-      <span id="score">0</span>
-    </code>
+    <h1 class="text-warning title">2048 ❤</h1>
+
+    <div class="line-2">
+      <button id="restart" class="btn-lg btn-outline-info">restart</button>
+
+      <code class="score">
+        Score:
+        <span id="score">0</span>
+      </code>
+    </div>
+
     <div class="wrapper">
       <div id="game-board"></div>
       <div id="over">Try Again!</div>
       <div id="won">You Won!</div>
     </div>
-
-    <button id="restart" class="btn-lg btn-outline-danger">restart</button>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
