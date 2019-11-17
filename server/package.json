@@ -1,0 +1,14 @@
+{
+    "name": "2048_demo",
+    "version": "1.0.0",
+    "description": "PWA demonstration for COMP 523 at UNC",
+    "main": "server/index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "author": "Andrew Harvey",
+    "license": "MIT",
+    "dependencies": {
+        "express": "4.16.3"
+    }
+}
