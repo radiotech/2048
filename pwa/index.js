@@ -21,6 +21,10 @@ const onSetup = ()=>{
 
 }
 
+window.addEventListener('beforeinstallprompt', function (e) {
+  e.showPrompt();
+});
+
 
 
 
