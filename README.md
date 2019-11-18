@@ -6,7 +6,7 @@ Before starting, you should first ensure that you have [Node.js](https://nodejs.
 
 ```
 git clone https://github.com/radiotech/2048.git 2048_demo
-cd 2048_demo
+cd 2048_demo/server
 npm install
 npm start
 ```
